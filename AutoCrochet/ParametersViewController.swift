@@ -11,17 +11,27 @@ import UIKit
 //This class is for the screen which has form submission for pattern Creation.
 class ParametersViewController: UIViewController {
 
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var vpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = patternColor
+        
+        //closes number pads
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(ParametersViewController.viewTapped))
+        self.view.addGestureRecognizer(recognizer)
+        
+        vpButton.layer.cornerRadius = 10
+        clearButton.layer.cornerRadius = 10
+        createButton.layer.cornerRadius = 10
     }
 
-    //A button which closes the keyboard for any of the text fields when you click it
-    @IBAction func closeKeyboard(_ sender: UIControl) {
-        circumference.resignFirstResponder()
-        width.resignFirstResponder()
-        height.resignFirstResponder()
-        patternName.resignFirstResponder()
+    //closes number pads
+    func viewTapped(){
+        self.view.endEditing(true)
     }
     
     //Allows the text keyboard for the pattern name to be closed when you click return
