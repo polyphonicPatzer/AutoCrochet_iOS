@@ -16,6 +16,6 @@ AutoCrochet generates crochet patterns for a simple hat based on given dimension
 
 ## Next Steps:
 * User can select the volume of the noise needed to mark the set of stitches.
-* User can select whether they want the measurement system of the app to be in metric or imperial.
-* Improve the layout and aesthetics of the input screen. 
-* Change the colors and aesthetics of the list screens.
+* ~~User can select whether they want the measurement system of the app to be in metric or USCS.~~
+* ~~Improve the layout and aesthetics of the input screen.~~
+* ~~Change the colors and aesthetics of the list screens.~~
