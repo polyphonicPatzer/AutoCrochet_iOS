@@ -35,6 +35,7 @@ class RowTableViewController: UITableViewController {
             
         }
         
+        self.view.backgroundColor = lightBackground
     }
     
     //This method starts a timer which listens for microphone input, and starts the use of the audioKit

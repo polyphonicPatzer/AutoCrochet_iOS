@@ -186,7 +186,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tWJ-DI-4hm">
                                         <rect key="frame" x="0.0" y="65.5" width="343" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hat Circumference" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFC-tP-iKS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circumference (cm)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFC-tP-iKS">
                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.26666666666666666" green="0.18431372549019609" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,7 +213,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-kg-dxv">
                                                 <rect key="frame" x="0.0" y="23.5" width="343" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVl-ox-GYR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVl-ox-GYR">
                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.26666666666666666" green="0.18431372549019609" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
@@ -231,7 +231,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-dA-BKr">
                                                 <rect key="frame" x="0.0" y="56.5" width="343" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xB-CW-UfM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width  (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xB-CW-UfM">
                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.26666666666666666" green="0.18431372549019609" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
@@ -254,8 +254,20 @@
                                             <constraint firstItem="Xyb-kg-dxv" firstAttribute="leading" secondItem="mPM-AT-pW9" secondAttribute="leading" id="rx0-T0-Qqo"/>
                                         </constraints>
                                     </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zZ8-wX-dvg">
+                                        <rect key="frame" x="0.0" y="212" width="343" height="29"/>
+                                        <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <segments>
+                                            <segment title="Metric"/>
+                                            <segment title="USCS"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.52941176470588236" green="0.36862745098039218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="measurementSegmentedControl:" destination="LhL-Sc-u8b" eventType="valueChanged" id="JTG-nM-dbl"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="h07-7V-Zol">
-                                        <rect key="frame" x="0.0" y="212" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="255" width="343" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gca-IM-eAz">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
@@ -268,6 +280,19 @@
                                                 <state key="normal" title="Clear"/>
                                                 <connections>
                                                     <action selector="clear:" destination="LhL-Sc-u8b" eventType="touchUpInside" id="u42-Gr-BOw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9F-Ol-YYa">
+                                                <rect key="frame" x="116.5" y="0.0" width="110" height="30"/>
+                                                <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="kzx-4O-kjc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="tintColor" red="0.52941176470588236" green="0.36862745098039218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="View Patterns"/>
+                                                <connections>
+                                                    <segue destination="GPx-6X-AXm" kind="show" id="Fv2-6o-gqc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-HX-6J8">
@@ -285,15 +310,6 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zZ8-wX-dvg">
-                                        <rect key="frame" x="0.0" y="257" width="343" height="29"/>
-                                        <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <segments>
-                                            <segment title="Metric" enabled="NO"/>
-                                            <segment title="USCS" enabled="NO"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.52941176470588236" green="0.36862745098039218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </segmentedControl>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="h07-7V-Zol" secondAttribute="trailing" id="Inj-6l-Hys"/>
@@ -307,38 +323,31 @@
                                     <constraint firstItem="tWJ-DI-4hm" firstAttribute="leading" secondItem="q84-eC-swj" secondAttribute="leading" id="zim-A8-dPs"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9F-Ol-YYa">
-                                <rect key="frame" x="132.5" y="617" width="110" height="30"/>
-                                <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="kzx-4O-kjc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="tintColor" red="0.52941176470588236" green="0.36862745098039218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="View Patterns"/>
-                                <connections>
-                                    <segue destination="GPx-6X-AXm" kind="show" id="Fv2-6o-gqc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nmO-5Z-CTg" firstAttribute="top" secondItem="N9F-Ol-YYa" secondAttribute="bottom" constant="20" id="27c-T1-etn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q84-eC-swj" secondAttribute="trailing" id="I6h-y3-AuK"/>
                             <constraint firstItem="q84-eC-swj" firstAttribute="leading" secondItem="7cW-z9-SN7" secondAttribute="leadingMargin" id="ITP-Mn-sd5"/>
-                            <constraint firstItem="N9F-Ol-YYa" firstAttribute="centerX" secondItem="7cW-z9-SN7" secondAttribute="centerX" id="KVC-oA-clS"/>
                             <constraint firstItem="q84-eC-swj" firstAttribute="top" secondItem="dKY-WN-RFw" secondAttribute="bottom" constant="20" id="ags-EG-W7Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create A Pattern" id="DkS-17-MhK"/>
                     <connections>
+                        <outlet property="WidthTextField" destination="uQl-l5-CPn" id="nLe-Cz-TYS"/>
                         <outlet property="circumference" destination="US3-1P-te3" id="6AG-uN-Y7t"/>
+                        <outlet property="circumferenceLabel" destination="WFC-tP-iKS" id="0ka-EQ-UQi"/>
                         <outlet property="clearButton" destination="Gca-IM-eAz" id="esO-jr-Pam"/>
                         <outlet property="createButton" destination="4VM-HX-6J8" id="aeX-hb-CuO"/>
+                        <outlet property="hcTextField" destination="US3-1P-te3" id="xaO-r3-6fa"/>
                         <outlet property="height" destination="Uaf-TL-CIx" id="zE7-pN-iHM"/>
+                        <outlet property="heightLabel" destination="PVl-ox-GYR" id="eVo-ei-52B"/>
+                        <outlet property="heightTextField" destination="Uaf-TL-CIx" id="FcL-3S-gEj"/>
+                        <outlet property="measurementType" destination="zZ8-wX-dvg" id="h1m-EY-VVE"/>
+                        <outlet property="nameTextField" destination="cyY-h7-X5e" id="p4f-J8-SkH"/>
                         <outlet property="patternName" destination="cyY-h7-X5e" id="rZA-lu-eyg"/>
                         <outlet property="vpButton" destination="N9F-Ol-YYa" id="dL6-CM-fLV"/>
                         <outlet property="width" destination="uQl-l5-CPn" id="e2x-CP-vQR"/>
+                        <outlet property="widthLabel" destination="7xB-CW-UfM" id="UTi-IF-8Lf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeK-0q-ea6" userLabel="First Responder" sceneMemberID="firstResponder"/>

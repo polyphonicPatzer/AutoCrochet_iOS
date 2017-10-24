@@ -15,19 +15,40 @@ class ParametersViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var vpButton: UIButton!
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var hcTextField: UITextField!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var widthTextField: UITextField!
+    
+    // Labels with units of measurement.
+    
+    @IBOutlet weak var circumferenceLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var widthLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = patternColor
+        self.view.backgroundColor = lightBackground
         
         //closes number pads
         let recognizer = UITapGestureRecognizer()
         recognizer.addTarget(self, action: #selector(ParametersViewController.viewTapped))
         self.view.addGestureRecognizer(recognizer)
         
+        // Round Buttons
         vpButton.layer.cornerRadius = 10
         clearButton.layer.cornerRadius = 10
         createButton.layer.cornerRadius = 10
+        
+        // Placeholder texts
+        nameTextField.placeholder = "e.g., Hat for Mom"
+        hcTextField.placeholder = "e.g., 50"
+        heightTextField.placeholder = "e.g., .7"
+        widthTextField.placeholder = "e.g., .7"
     }
+    
+    @IBOutlet weak var measurementType: UISegmentedControl!
 
     //closes number pads
     func viewTapped(){
@@ -67,7 +88,15 @@ class ParametersViewController: UIViewController {
             alert(displayMessage: "Width must be a valid decimal between 0.1 and 11.")
             return
         }
-        patternStitch = Stitch.init(hightInCm: height3, widthInCm: width3)
+        
+        //Converts to users selected measurement system.
+        if (measurementType.selectedSegmentIndex == 0){
+            patternStitch = Stitch.init(hightInCm: height3, widthInCm: width3)
+        }
+        else if (measurementType.selectedSegmentIndex == 1){
+            //convert height3 and width3 to centimeters from inches
+            patternStitch = Stitch.init(hightInCm: height3 * 2.54, widthInCm: width3 * 2.54)
+        }
         
         let rows = generatePattern(circumference: circumference3)
         if rows.count == 0 {return}//if stitchNumArray was also empty within the generatePattern function
@@ -163,6 +192,22 @@ class ParametersViewController: UIViewController {
         width.text = ""
         patternName.text = ""
     }
+    
+    //Change the unit of measurement labels to reflect user selection.
+    @IBAction func measurementSegmentedControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            circumferenceLabel.text = "Circumference (cm)"
+            heightLabel.text = "Height (cm)"
+            widthLabel.text = "Width (cm)"
+        } else if sender.selectedSegmentIndex == 1 {
+            
+            circumferenceLabel.text = "Circumference (in)"
+            heightLabel.text = "Height (in)"
+            widthLabel.text = "Width (in)"
+        }
+    }
+    
+    
 }
 
 

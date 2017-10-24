@@ -13,6 +13,7 @@ class PatternCollectionTableTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = lightBackground
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +32,7 @@ class PatternCollectionTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "patternRow", for: indexPath)
 
         cell.textLabel?.text = patterns[indexPath.row].name
-        cell.backgroundColor = patternColor
+        cell.backgroundColor = complete
 
         return cell
     }

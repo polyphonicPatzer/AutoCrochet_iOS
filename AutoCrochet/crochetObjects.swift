@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-let complete = UIColor(red:0.57, green:0.94, blue:0.74, alpha:1.0)
-let incomplete = UIColor(red:0.66, green:0.66, blue:0.66, alpha:1.0)
-let patternColor = UIColor(red:0.90, green:0.88, blue:1.00, alpha:1.0)
+let complete = UIColor(red:0.60, green:0.48, blue:1.00, alpha:1.0)
+let incomplete = UIColor(red:0.49, green:0.48, blue:0.50, alpha:1.0)
+let lightBackground = UIColor(red:0.90, green:0.88, blue:1.00, alpha:1.0)
 
 var patterns = [Pattern]()
 

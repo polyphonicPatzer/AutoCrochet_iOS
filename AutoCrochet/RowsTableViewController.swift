@@ -18,6 +18,7 @@ class RowsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         patternTableTitle.title = patternName ?? "Error"
+        self.view.backgroundColor = lightBackground
     }
     
     override func didReceiveMemoryWarning() {
