@@ -159,9 +159,12 @@ class ParametersViewController: UIViewController {
     func modifyArray(initArray: [Double]) -> [Double]{
         var output = [Double]()
         for i in stride(from: initArray.count-1, to: 0, by: -1) {
-            output.append(initArray[i])
+            if (i % 2 == 1){
+                output.append(initArray[i])
+            }
         }
-        for _ in 0..<Int(Double(initArray.count) * 0.65){
+        
+        for _ in 0..<initArray.count{
             output.append(initArray[0])
         }
         return output
@@ -171,7 +174,7 @@ class ParametersViewController: UIViewController {
     func getStitchCount(modifiedArray: [Double]) -> [Int]{
         var output = [Int]()
         for i in 0..<modifiedArray.count {
-            output.append(Int(modifiedArray[i]/patternStitch.width))
+            output.append(Int(round(modifiedArray[i]/patternStitch.width)))
         }
         return output
     }
