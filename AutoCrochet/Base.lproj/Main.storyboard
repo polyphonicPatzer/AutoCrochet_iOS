@@ -134,8 +134,20 @@
                             <outlet property="delegate" destination="4WO-md-mPV" id="kb6-4k-FI6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NK2-Fk-PBk"/>
+                    <navigationItem key="navigationItem" id="NK2-Fk-PBk">
+                        <barButtonItem key="rightBarButtonItem" id="Gev-dJ-LId">
+                            <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="BPz-bW-vIW">
+                                <rect key="frame" x="278" y="7" width="83" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="benchmarkAmplitudeChanged:" destination="4WO-md-mPV" eventType="valueChanged" id="sGG-SU-Rg2"/>
+                                </connections>
+                            </slider>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="benchmarkAmplitudeSlider" destination="BPz-bW-vIW" id="Hdr-97-Rp8"/>
+                        <outlet property="listeningStatus" destination="5Ov-D3-y3I" id="fmf-lX-3Vf"/>
                         <outlet property="rowTableTitle" destination="NK2-Fk-PBk" id="DxO-5U-bVh"/>
                     </connections>
                 </tableViewController>

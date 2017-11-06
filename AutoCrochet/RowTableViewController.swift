@@ -19,6 +19,9 @@ class RowTableViewController: UITableViewController {
     var waveformTracker: AKFrequencyTracker!
     var node: AKBooster!
     var sayingWord: Bool = false
+    var benchmarkAmplitude: Float = 0.06
+    @IBOutlet weak var listeningStatus: UILabel!
+    @IBOutlet weak var benchmarkAmplitudeSlider: UISlider!
     
     //This method creates the objects needed for the microphone listening.
     override func viewDidLoad() {
@@ -36,6 +39,11 @@ class RowTableViewController: UITableViewController {
         }
         
         self.view.backgroundColor = lightBackground
+        
+        //Set slider properties
+        benchmarkAmplitudeSlider.maximumValue = 0.5
+        benchmarkAmplitudeSlider.minimumValue = 0.04
+        benchmarkAmplitudeSlider.value = benchmarkAmplitude
     }
     
     //This method starts a timer which listens for microphone input, and starts the use of the audioKit
@@ -60,7 +68,7 @@ class RowTableViewController: UITableViewController {
     //This method determines what the amplitude and if it's nature is that of a distinct noise intended to mark the completino of a row.
     func update() {
         let amplitude = waveformTracker.amplitude
-        if amplitude < 0.06{
+        if amplitude < Double(benchmarkAmplitude){
             sayingWord = false
         }
         else{
@@ -116,5 +124,15 @@ class RowTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
+    //benchmark amplitdude slider
+    @IBAction func benchmarkAmplitudeChanged(_ sender: UISlider) {
+        benchmarkAmplitude = sender.value
+        if (benchmarkAmplitude == sender.maximumValue){
+            listeningStatus.text = "Not Listening"
+            benchmarkAmplitude = 20 //Noise would need to be unrealistically loud to detect
+        }else{
+            listeningStatus.text = "Listening..."
+        }
+    }
 
 }
