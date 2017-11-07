@@ -17,8 +17,7 @@ class ParametersViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var hcTextField: UITextField!
-    @IBOutlet weak var heightTextField: UITextField!
-    @IBOutlet weak var widthTextField: UITextField!
+    
     
     // Labels with units of measurement.
     
@@ -44,8 +43,8 @@ class ParametersViewController: UIViewController {
         // Placeholder texts
         nameTextField.placeholder = "e.g., Hat for Mom"
         hcTextField.placeholder = "e.g., 50"
-        heightTextField.placeholder = "e.g., .7"
-        widthTextField.placeholder = "e.g., .7"
+        height.placeholder = "e.g., .7"
+        width.placeholder = "e.g., .6"
     }
     
     @IBOutlet weak var measurementType: UISegmentedControl!
@@ -69,8 +68,8 @@ class ParametersViewController: UIViewController {
     //It checks that the form has correct input otherwise it sends an alert.
     @IBAction func createPattern(_ sender: UIButton) {
         let circumference1 = circumference.text ?? "failed"
-        let width1 = height.text ?? "failed"
-        let height1 = width.text ?? "failed"
+        let width1 = width.text ?? "failed"
+        let height1 = height.text ?? "failed"
         let name1 = patternName.text ?? "failed"
         
         if (name1 == "" || name1 == "failed" || width1 == "" || width1 == "failed" || height1 == "" || height1 == "failed" || circumference1 == "" || circumference1 == "failed"){
@@ -139,13 +138,17 @@ class ParametersViewController: UIViewController {
             return [Row]()
         }
         
+        //First Row
         var output = [Row]()
         output.append(Row.init(previousStitchTotal: 0, currentStitchTotal: stitchNumArray[0], rowNumber: 1))
+        //Middle Rows
         for i in 1..<stitchNumArray.count{
             output.append(Row.init(previousStitchTotal: stitchNumArray[i-1], currentStitchTotal: stitchNumArray[i], rowNumber: i+1))
         }
+        //Last Row
         let lastI = stitchNumArray.count - 1
         output.append(Row.init(previousStitchTotal: stitchNumArray[lastI - 1], currentStitchTotal: stitchNumArray[lastI], rowNumber: lastI + 2))
+        
         return output
     }
     
@@ -159,12 +162,14 @@ class ParametersViewController: UIViewController {
     func modifyArray(initArray: [Double]) -> [Double]{
         var output = [Double]()
         for i in stride(from: initArray.count-1, to: 0, by: -1) {
-            if (i % 2 == 1){
+            if (!(i % 5 == 1)){
                 output.append(initArray[i])
             }
         }
         
-        for _ in 0..<initArray.count{
+        let max = Int(round(Double(initArray.count) * 1.1))
+        
+        for _ in 0..<max{
             output.append(initArray[0])
         }
         return output

@@ -345,7 +345,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create A Pattern" id="DkS-17-MhK"/>
                     <connections>
-                        <outlet property="WidthTextField" destination="uQl-l5-CPn" id="nLe-Cz-TYS"/>
                         <outlet property="circumference" destination="US3-1P-te3" id="6AG-uN-Y7t"/>
                         <outlet property="circumferenceLabel" destination="WFC-tP-iKS" id="0ka-EQ-UQi"/>
                         <outlet property="clearButton" destination="Gca-IM-eAz" id="esO-jr-Pam"/>
@@ -353,7 +352,6 @@
                         <outlet property="hcTextField" destination="US3-1P-te3" id="xaO-r3-6fa"/>
                         <outlet property="height" destination="Uaf-TL-CIx" id="zE7-pN-iHM"/>
                         <outlet property="heightLabel" destination="PVl-ox-GYR" id="eVo-ei-52B"/>
-                        <outlet property="heightTextField" destination="Uaf-TL-CIx" id="FcL-3S-gEj"/>
                         <outlet property="measurementType" destination="zZ8-wX-dvg" id="h1m-EY-VVE"/>
                         <outlet property="nameTextField" destination="cyY-h7-X5e" id="p4f-J8-SkH"/>
                         <outlet property="patternName" destination="cyY-h7-X5e" id="rZA-lu-eyg"/>

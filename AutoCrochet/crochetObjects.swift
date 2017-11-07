@@ -67,19 +67,31 @@ class Row {
     
     func setSegments(){
         if incNum == 0{
-            segments.append(("\(stNum) sc", false))
+            segments.append(("\(stNum) normal", false))
         }
         else if (stNum == 0){
             segments.append(("\(incNum) \(incOrDec)", false))
         }
         else{
             let segmentAmount = stNum/incNum
-            let leftover = stNum%incNum
-            for _ in 1...incNum{
-                segments.append(("\(segmentAmount) sc, 1 \(incOrDec)", false))
-            }
+            var leftover = stNum%incNum
             if (leftover > 0){
-                segments.append(("\(leftover) sc", false))
+                let interval = incNum/leftover
+                for x in 1...incNum{
+                    //So that the extra normal stitches are interspersed evenly
+                    if (leftover > 0 && (x % (interval)) == 0){
+                        segments.append(("\(segmentAmount + 1) normal, 1 \(incOrDec)", false))
+                        leftover = leftover - 1
+                    }
+                    else{
+                        segments.append(("\(segmentAmount) normal, 1 \(incOrDec)", false))
+                    }
+                }
+            }
+            else{
+                for _ in 1...incNum{
+                    segments.append(("\(segmentAmount) normal, 1 \(incOrDec)", false))
+                }
             }
         }
     }
