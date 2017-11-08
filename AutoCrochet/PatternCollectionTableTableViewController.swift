@@ -11,9 +11,11 @@ import UIKit
 //This class is for the screen which displays all the created patterns. When the user selects one they are sent to the pattern.
 class PatternCollectionTableTableViewController: UITableViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = lightBackground
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +47,10 @@ class PatternCollectionTableTableViewController: UITableViewController {
                 patternInstructions.pattern = patterns[indexPath.row].rows
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
 }

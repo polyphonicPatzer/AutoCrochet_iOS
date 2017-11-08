@@ -45,7 +45,13 @@
                             <outlet property="delegate" destination="GPx-6X-AXm" id="kyc-1P-TrS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Patterns" id="bx0-Dp-mG4"/>
+                    <navigationItem key="navigationItem" title="Patterns" id="bx0-Dp-mG4">
+                        <barButtonItem key="rightBarButtonItem" title="New Pattern" id="JEX-w4-HU9">
+                            <connections>
+                                <segue destination="LhL-Sc-u8b" kind="show" id="ioQ-me-BDK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfO-3R-35V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,19 +300,6 @@
                                                     <action selector="clear:" destination="LhL-Sc-u8b" eventType="touchUpInside" id="u42-Gr-BOw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9F-Ol-YYa">
-                                                <rect key="frame" x="116.5" y="0.0" width="110" height="30"/>
-                                                <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="110" id="kzx-4O-kjc"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <color key="tintColor" red="0.52941176470588236" green="0.36862745098039218" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="View Patterns"/>
-                                                <connections>
-                                                    <segue destination="GPx-6X-AXm" kind="show" id="Fv2-6o-gqc"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-HX-6J8">
                                                 <rect key="frame" x="283" y="0.0" width="60" height="30"/>
                                                 <color key="backgroundColor" red="0.96483927965164185" green="0.95250827074050903" blue="0.97717195749282837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -355,14 +348,13 @@
                         <outlet property="measurementType" destination="zZ8-wX-dvg" id="h1m-EY-VVE"/>
                         <outlet property="nameTextField" destination="cyY-h7-X5e" id="p4f-J8-SkH"/>
                         <outlet property="patternName" destination="cyY-h7-X5e" id="rZA-lu-eyg"/>
-                        <outlet property="vpButton" destination="N9F-Ol-YYa" id="dL6-CM-fLV"/>
                         <outlet property="width" destination="uQl-l5-CPn" id="e2x-CP-vQR"/>
                         <outlet property="widthLabel" destination="7xB-CW-UfM" id="UTi-IF-8Lf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeK-0q-ea6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="722.78860569715152"/>
+            <point key="canvasLocation" x="161" y="1474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k5z-W2-jQo">
@@ -373,12 +365,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LhL-Sc-u8b" kind="relationship" relationship="rootViewController" id="IcS-fY-htx"/>
+                        <segue destination="GPx-6X-AXm" kind="relationship" relationship="rootViewController" id="Xof-eD-ohT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdl-ez-Ula" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1495" y="723"/>
+            <point key="canvasLocation" x="-596" y="723"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.33759409189224243" green="0.26079696416854858" blue="0.57256251573562622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

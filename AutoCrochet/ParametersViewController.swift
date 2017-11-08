@@ -36,7 +36,6 @@ class ParametersViewController: UIViewController {
         self.view.addGestureRecognizer(recognizer)
         
         // Round Buttons
-        vpButton.layer.cornerRadius = 10
         clearButton.layer.cornerRadius = 10
         createButton.layer.cornerRadius = 10
         
@@ -74,6 +73,7 @@ class ParametersViewController: UIViewController {
         
         if (name1 == "" || name1 == "failed" || width1 == "" || width1 == "failed" || height1 == "" || height1 == "failed" || circumference1 == "" || circumference1 == "failed"){
             alert(displayMessage: "Make sure you have filled out each field.")
+            return
         }
         guard let circumference3 = Double(circumference1), circumference3 >= 9 else {
             alert(displayMessage: "Circumference must be a valid decimal greater than 9.0.")
@@ -101,6 +101,7 @@ class ParametersViewController: UIViewController {
         if rows.count == 0 {return}//if stitchNumArray was also empty within the generatePattern function
         
         patterns.append(Pattern.init(r: rows, n: "\(name1)"))
+        successAlert(displayMessage: "Pattern created successfully!")
     }
     
     //variables used in the crochet pattern generating algorithm
@@ -177,6 +178,8 @@ class ParametersViewController: UIViewController {
     
     //given the modified array, this method will determine the number of stitches needed in each row
     func getStitchCount(modifiedArray: [Double]) -> [Int]{
+        //ensure first row is not too big in regard to stitch height
+        //ensure no row is more than double the last row (prevent negatives)
         var output = [Int]()
         for i in 0..<modifiedArray.count {
             output.append(Int(round(modifiedArray[i]/patternStitch.width)))
@@ -188,6 +191,13 @@ class ParametersViewController: UIViewController {
     func alert(displayMessage m : String){
         let message = m
         let alertController = UIAlertController(title: "Invalid Selection", message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okayAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    func successAlert(displayMessage m: String){
+        let title = m
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alertController.addAction(okayAction)
         present(alertController, animated: true, completion: nil)
