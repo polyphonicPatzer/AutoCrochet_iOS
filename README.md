@@ -4,7 +4,7 @@
 
 ## Project Description:
 
-AutoCrochet generates crochet patterns for a simple hat based on given dimensions of the stitch to be used. Its secondary feature is that it helps the user track how far along they are in the pattern. They can mark down that they've completed a certain set of stitches by making a noise. I have many ideas for improving the app, but for the scope of this project, I will only implement two or three of the following: ~~A revamping of the user interface~~, introduce more complex hat patterns, introduce the option to create a sphere, data permanence, and ~~reworking the pattern generating algorithm~~.
+AutoCrochet generates crochet patterns for a simple hat based on given dimensions of the stitch to be used. Its secondary feature is that it helps the user track how far along they are in the pattern. They can mark down that they've completed a certain set of stitches by making a noise. I have many ideas for improving the app, but for the scope of this project, I will only implement two or three of the following: ~~A revamping of the user interface~~, introduce more complex hat patterns, ~~introduce the option to create a sphere~~, data permanence, and ~~reworking the pattern generating algorithm~~.
 
 ## Technologies Involved:
 
